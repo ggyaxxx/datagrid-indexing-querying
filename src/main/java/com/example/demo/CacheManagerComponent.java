@@ -32,10 +32,13 @@ public class CacheManagerComponent {
         metadataCache.put(schema.getProtoFileName(), schema.getProtoFile());
         System.out.println("Invio lo schema protobuf al server");
 
-        // Recupera la cache esistente
+        // Recupera la cache esistente -> non è necessario ! Se la Cache non esiste, vista la configurazione in InfinispanConfiguration
+        // ci penserà Infinispan stesso a ricrearla
+/*
         RemoteCache<String, Customer> cache = remoteCacheManager.getCache("customers");
+*/
 
-        if (cache == null) {
+/*        if (cache == null) {
             // Se non esiste, la crea usando customers.xml
             System.out.println(" Cache 'customers' non trovata, creando da XML...");
             String xml = Files.readString(Paths.get(CacheManagerComponent.class.getClassLoader().getResource("customers.xml").getPath()));
@@ -47,7 +50,7 @@ public class CacheManagerComponent {
             System.out.println(" Cache 'customers' creata con successo!");
         } else {
             System.out.println(" Cache 'customers' già esistente.");
-        }
+        }*/
         this.remoteCache = this.remoteCacheManager.getCache(Data.CACHE_NAME);
 
     }
