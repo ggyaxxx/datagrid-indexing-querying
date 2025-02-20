@@ -1,4 +1,4 @@
 <distributed-cache name="customers" statistics="true">
     <encoding media-type="application/x-protostream"/>
-    <memory max-size="1.5GB" when-full="REMOVE"/>
+    <memory max-size="120KiB" when-full="REMOVE"/>
 </distributed-cache>
