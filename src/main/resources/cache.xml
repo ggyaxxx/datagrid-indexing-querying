@@ -1,3 +1,4 @@
 <distributed-cache name="customers" statistics="true">
     <encoding media-type="application/x-protostream"/>
+    <memory max-count="500" when-full="REMOVE"/>
 </distributed-cache>
